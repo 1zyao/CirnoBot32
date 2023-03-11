@@ -33,14 +33,7 @@ jobs:
         with:
           push: true
           tags: zyao97323/cirnobot:latest32
-          platforms: arm,ppc64le,mips64le,s390x,386
+          platforms: arm
           cache-from: type=gha
           cache-to: type=gha,mode=max
           # upload build test reports
-      -
-        name: Publish reports
-        if: always()
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: poetry-installer-error.log
-          path: /tmp/poetry-installer-error-*
