@@ -4,9 +4,9 @@ WORKDIR /tmp
 
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 
-RUN curl -sSL https://install.python-poetry.org/ -o install-poetry.py
+# RUN curl -sSL https://install.python-poetry.org/ -o install-poetry.py
 
-RUN python install-poetry.py --version 1.2.0 --yes
+# RUN python install-poetry.py --version 1.2.0 --yes
 
 ENV PATH="${PATH}:/root/.local/bin"
 
