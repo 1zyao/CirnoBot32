@@ -40,4 +40,4 @@ jobs:
       - uses: actions/upload-artifact@v3.1.2
         with:
           name: requirements.txt
-          path: /app/requirements.txt
+          path: /tmp/requirements.txt
