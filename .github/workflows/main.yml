@@ -27,9 +27,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Install Poetry Action
-        uses: snok/install-poetry@v1.3.3
-      -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v4.0.0
@@ -39,3 +36,11 @@ jobs:
           platforms: arm,ppc64le,mips64le,s390x,386
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          # upload build test reports
+      -
+        name: Publish reports
+        if: always()
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: poetry-installer-error-*.log
+          path: tmp/
