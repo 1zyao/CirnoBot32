@@ -24,6 +24,8 @@ RUN python -m pip install --upgrade pip
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
+RUN cat requirements.txt
+
 # RUN rm requirements.txt
 
 # COPY ./ /app/
