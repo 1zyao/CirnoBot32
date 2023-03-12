@@ -18,7 +18,7 @@ WORKDIR /app
 
 # COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 
-# RUN curl -sSL https://github.com/1zyao/CirnoBot32/raw/master/poetryrequirements.txt -o requirements.txt
+RUN curl -sSL https://github.com/1zyao/CirnoBot32/raw/master/poetryrequirements.txt -o requirements.txt
 
 # RUN python3 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
 
