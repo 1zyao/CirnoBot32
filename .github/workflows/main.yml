@@ -33,11 +33,7 @@ jobs:
         with:
           push: true
           tags: zyao97323/cirnobot:latest32
-          #platforms: arm
+          platforms: arm
           cache-from: type=gha
           cache-to: type=gha,mode=max
           # upload build test reports
-      - uses: actions/upload-artifact@v3.1.2
-        with:
-          name: requirements.txt
-          path: /app/requirements.txt

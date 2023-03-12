@@ -4,19 +4,19 @@ WORKDIR /tmp
 
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 
-RUN curl -sSL https://install.python-poetry.org/ -o install-poetry.py
+#RUN curl -sSL https://install.python-poetry.org/ -o install-poetry.py
 
-RUN python install-poetry.py --version 1.2.0 --yes
+#RUN python install-poetry.py --yes
 
 ENV PATH="${PATH}:/root/.local/bin"
 
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+#RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
 WORKDIR /app
 
-COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
+COPY --from=requirements-stage /tmp/poetryrequirements.txt /app/requirements.txt
 
 # RUN python3 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
 
